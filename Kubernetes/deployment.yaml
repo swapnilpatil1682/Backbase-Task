@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: init-lyricsapp
+  namespace: backbase
+  labels:
+    app: myapp
+  annotations:
+    pod.beta.kubernetes.io/init-containers: '[
+        {
+            "name": "init-myservice",
+            "image": "busybox",
+            "command": ["sh", "-c", "if curl --output /dev/null --silent --head --fail "https://api.lyrics.ovh/v1/coldplay/paradise"; then
+  echo "Public API exists: $url"
+else
+  echo "Public API does not exist: $url"
+fi; sleep 2; done;"]
+        }
+    ]'
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', 'echo The Lyrics API is up and running! && sleep 3600']
+ 
+metadata:
+  name: lyricsapp
+  namespace: backbase   
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lyricsapp
+    spec:
+      containers:
+      - name: lyricsapp
+        image: pswapnil1/lyricsapp:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: lyrics-port
+          containerPort: 9100
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 9100
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+
