@@ -96,7 +96,7 @@ To run the above app.
    With above command you ll deploy jenkins in your k8's cluster. You can check if jenkins is running by 
    kubectl get svc. If it is running you can access it by running minikube service jenkins
   
-   e) Now run your service. First check IP of your minikube as we have used nodeport the service will run on IP of minikube 
+   e) Now run your service. First check IP of your minikube (command : minikube ip) as we have used nodeport the service will    run on IP of minikube 
    with port we forwared in service i.e. 31317 
    e.g. http://192.168.99.100:31317/
    
