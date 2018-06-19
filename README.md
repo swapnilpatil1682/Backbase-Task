@@ -16,30 +16,30 @@ To get the service first get the minikube IP and then run it with port exposed i
 1) Spring boot app.
 
    #To run locally : 
-   a) mvn spring-boot:run
+   a)mvn spring-boot:run
 
    #To create a jar :
-   b) mvn package
+   b)mvn package
 
    #To run the created jar 
-   c) java -jar target/spring-app-1.0-SNAPSHOT.jar
+   c)java -jar target/spring-app-1.0-SNAPSHOT.jar
 
 
 2) Docker Image. 
 
    #To build the docker image from dockerfile 
-   a) docker build -t pswapnil1/backbaseapp
+   a)docker build -t pswapnil1/backbaseapp
   
    #To run the created docker image 
-   b) docker run -it -p 8089/8080 pswapnil1/backbaseapp
+   b)docker run -it -p 8089/8080 pswapnil1/backbaseapp
 
    #To pull the image from docker hub 
-   c) docker pull pswapnil1/backbaseapp
+   c)docker pull pswapnil1/backbaseapp
 
 3) Kubernetes
    
    #To get the service  
-   a) kubectl get service 
+   a)kubectl get service 
  
    #To open the service
    b)minikube service jenkins
