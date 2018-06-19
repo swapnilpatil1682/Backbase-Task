@@ -15,14 +15,14 @@ To get the service first get the minikube IP and then run it with port exposed i
 
 1) Spring boot app.
 
-To run locally : 
-mvn spring-boot:run
+   #To run locally : 
+   a) mvn spring-boot:run
 
-To create a jar :
-mvn package
+   #To create a jar :
+   b) mvn package
 
-To run the created jar 
-java -jar target/spring-app-1.0-SNAPSHOT.jar
+   #To run the created jar 
+   c) java -jar target/spring-app-1.0-SNAPSHOT.jar
 
 
 2) Docker Image. 
