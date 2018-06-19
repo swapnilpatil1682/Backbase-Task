@@ -82,15 +82,20 @@ To run the above app.
 4) (Optional) You can push the created image in your own docker hub. But you can pull from my repo with command docker pull pswapnil1/backbaseapp
 5) Now start the minikube cluster with command minikube start.
 6) Now for kubernetes first create namespace and the deployment and services. 
+  
    a) kubectl apply -f namespace.yaml
    Check if namespace with name backbase is created by running kubectl get namespaces. 
+  
    b) kubectl apply -f deployment.yaml
    Check if deployment has been created by running kubectl get pods -n=backbase.
+  
    c) kubectl apply -f services.yaml
    Check if service has been created by running kubectl get svc -n=backbase.
+  
    d) kubectl apply -f jenkins.yaml 
    With above command you ll deploy jenkins in your k8's cluster. You can check if jenkins is running by 
    kubectl get svc. If it is running you can access it by running minikube service jenkins
+  
    e) Now run your service. First check IP of your minikube as we have used nodeport the service will run on IP of minikube 
    with port we forwared in service i.e. 31317 
    e.g. http://192.168.99.100:31317/
