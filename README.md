@@ -56,6 +56,9 @@ To get the service first get the minikube IP and then run it with port exposed i
    
    c) kubectl get svc -n=backbase
 
+
+4) Jenkins 
+
    #To get the service url
    
    d) minikube service jenkins —url
