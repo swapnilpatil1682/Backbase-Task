@@ -16,46 +16,57 @@ To get the service first get the minikube IP and then run it with port exposed i
 1) Spring boot app.
 
    #To run locally : 
-   a)mvn spring-boot:run
+   
+   a) mvn spring-boot:run
 
    #To create a jar :
-   b)mvn package
+   
+   b) mvn package
 
    #To run the created jar 
-   c)java -jar target/spring-app-1.0-SNAPSHOT.jar
+   
+   c) java -jar target/spring-app-1.0-SNAPSHOT.jar
 
 
 2) Docker Image. 
 
    #To build the docker image from dockerfile 
-   a)docker build -t pswapnil1/backbaseapp
+   
+   a) docker build -t pswapnil1/backbaseapp
   
    #To run the created docker image 
-   b)docker run -it -p 8089/8080 pswapnil1/backbaseapp
+   
+   b) docker run -it -p 8089/8080 pswapnil1/backbaseapp
 
    #To pull the image from docker hub 
-   c)docker pull pswapnil1/backbaseapp
+   
+   c) docker pull pswapnil1/backbaseapp
 
 3) Kubernetes
    
    #To get the service  
-   a)kubectl get service 
- 
-   #To open the service
-   b)minikube service jenkins
-  
-   #To get the service url
-   c)minikube service jenkins —url
+   
+   a) kubectl get service   
 
    #To get the pods of app  
-   d)kubectl get pods -n=backbase
+   
+   b) kubectl get pods -n=backbase
  
    #To get the service of app 
-   e)kubectl get svc -n=backbase
+   
+   c) kubectl get svc -n=backbase
 
+   #To get the service url
+   
+   d) minikube service jenkins —url
+   
    #To get the initialAdminPassword for jenkins installation
-   f)kubectl exec jenkins-6567d974f4-k5wwq cat /var/jenkins_home/secrets/initialAdminPassword
 
+   e)kubectl exec jenkins-6567d974f4-k5wwq cat /var/jenkins_home/secrets/initialAdminPassword
+
+   #To open the service
+   
+   f) minikube service jenkins
 
 
 
